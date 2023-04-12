@@ -6,3 +6,4 @@ Curso para aprender Angular en profundidad mediante ejercicios de la plataforma 
 - 02: Conceptos generales para empezar con Angular y TypeScript
 - 03: [Base de TypeScript](ts-intro/src/ejercicios)
 - 04: [Introducción a Angular](angular/01-bases)
+- 05: [Expandiendo nuestras bases](angular/01-bases/src/app/dbz/)
