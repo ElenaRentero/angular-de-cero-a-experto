@@ -7,6 +7,9 @@ Curso para aprender Angular en profundidad mediante ejercicios de la plataforma 
 - 03: [Base de TypeScript](ts-intro/src/ejercicios)
 - 04: [Introducción a Angular](angular/01-bases)
 - 05: [Expandiendo nuestras bases](angular/01-bases/src/app/dbz/)
+- 06: Despliegues rápidos a producción
+- 07: [GifsApp - Aplicación para buscar imágenes](angular/02-gifsApp)
 
 ## ⚙ Proyectos
 - [Dragon Ball Z](https://curso-angular-dbz.netlify.app/)
+- [GifsApp](https://curso-angular-gifsapp.netlify.app/)
