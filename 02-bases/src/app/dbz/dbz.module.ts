@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
-import { MainPageComponent } from './main-page/main-page.component';
-import { PersonajesComponent } from './personajes/personajes.component';
-import { AgregarComponent } from './agregar/agregar.component';
+import { AddCharacterComponent } from './components/add-character/add-character.component';
+import { ListComponent } from './components/list/list.component';
+import { MainPageComponent } from './pages/main-page.component';
 
-import { DbzService } from './services/dbz.service';
+// import { DbzService } from './services/dbz.service';
 
 @NgModule({
   declarations: [
+    AddCharacterComponent,
+    ListComponent,
     MainPageComponent,
-    PersonajesComponent,
-    AgregarComponent
   ],
   exports: [
     MainPageComponent
@@ -21,8 +21,8 @@ import { DbzService } from './services/dbz.service';
     CommonModule,
     FormsModule
   ],
-  providers: [
-    DbzService
-  ]
+  // providers: [
+  //   DbzService
+  // ] Esto no sería necesario puesto que en el servicio hemos incluido el providedIn: 'root'
 })
 export class DbzModule { }

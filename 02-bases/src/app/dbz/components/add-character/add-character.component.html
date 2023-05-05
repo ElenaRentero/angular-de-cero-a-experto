@@ -1,25 +1,29 @@
-<h3>Agregar <small>{{nuevo.nombre}}</small></h3>
+<h4>Agregar personaje</h4>
 <hr>
 
-<form (ngSubmit)="agregar()">
+<form class="row" (ngSubmit)="emitCharacter()">
     <input 
         type="text" 
+        class="form-control mb-2"
         placeholder="Nombre" 
-        name="nombre" 
-        [(ngModel)]="nuevo.nombre" 
+        name="name" 
+        [(ngModel)]="character.name" 
     />
     <!--Forma para recoger el valor del input y que se muestre en el value
     [value]="nuevo.nombre" (input)="cambiarNombre( $event )"-->
 
     <input 
         type="number" 
+        class="form-control mb-2"
         placeholder="Poder" 
-        name="poder" 
-        [(ngModel)]="nuevo.poder" 
+        name="power" 
+        [(ngModel)]="character.power" 
     />
     <!--ngModel método two way data binding tanto emite como recibe eventos o propiedades-->
     
-    <button type="submit">
+    <button type="submit" class="btn btn-primary">
         Agregar
     </button>
+    
+    <!-- <pre>{{ newCharacter | json }}</pre> -->
 </form>
