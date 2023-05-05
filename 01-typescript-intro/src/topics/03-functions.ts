@@ -1,20 +1,19 @@
-function addNumbers(a: number, b: number) {
+function addNumbers(a: number, b: number ) {
     return a + b;
 }
 
-const addNumbersArrow = (a: number, b: number): string => {
-    return `${a + b}`;
+const addNumbersArrow = ( a: number, b: number ): string => {
+    return `${ a + b }`;
 }
 
-function multiply(firstNumber: number, secondNumber?: number, base: number = 2) {
+function multiply( firstNumber: number, secondNumber?: number, base: number = 2 ) {
     return firstNumber * base;
 }
 
-const result: number = addNumbers(1, 2);
-const result2: string = addNumbersArrow(1, 2);
-const multiplyResult: number = multiply(5);
-
-console.log({ result, result2, multiplyResult })
+//const result: number = addNumbers(1, 2);
+//const result2: string = addNumbersArrow(1, 2);
+//const multiplyResult: number = multiply(5);
+// console.log({ result, result2, multiplyResult })
 
 /*En la función ultiplicar se pasan 3 parámetros numero, otroNumero y base. En este caso otroNumero es
 un parámetro opcional por lo que tenemos que ponerle ?, si le pasamos solo dos números los coloca por el
@@ -28,7 +27,7 @@ interface Character {
     showHp: () => void; //Manera de indicar que es una función
 }
 
-const healCharacter = (character: Character, amount: number) => {
+const healCharacter = ( character: Character, amount: number ) => {
     character.hp += amount;
 }
 
@@ -42,7 +41,8 @@ const strider: Character = {
     }
 }
 
-healCharacter(strider, 10);
+healCharacter( strider, 10 );
+healCharacter( strider, 50 );
 
 strider.showHp();
 

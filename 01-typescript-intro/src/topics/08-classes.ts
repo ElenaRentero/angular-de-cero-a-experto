@@ -9,6 +9,8 @@
 } Normalmente no se hace de esta manera, se puede acortar mucho más como abajo */
 
 export class Person {
+    // public name: string;
+    // private address: string;
     constructor(
         public firstName: string,
         public lastName: string,

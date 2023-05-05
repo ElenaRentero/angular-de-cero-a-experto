@@ -12,7 +12,7 @@ const passenger2: Passenger = {
     children: ['Natalia', 'Elizabeth']
 }
 
-const returnChildrenNumber = (passenger: Passenger): number => {
+const returnChildrenNumber = ( passenger: Passenger ): number => {
 
     const howManyChildren = passenger.children?.length || 0;
     // const howManyChildren = passenger.children!.length;  Non-null assertion operator forma de decirle a Ts que nunca va a recibir null

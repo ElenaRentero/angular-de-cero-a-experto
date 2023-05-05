@@ -11,7 +11,7 @@ const shoppingCart: Product[] = [
     }
 ];
 
-const [total, tax] = taxCalculation({
+const [ total, tax ] = taxCalculation({
     products: shoppingCart,
     tax: 0.15
 });

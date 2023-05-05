@@ -25,5 +25,4 @@ export class SuperClass {
 console.log(SuperClass);
 
 const myClass = new SuperClass();
-
 console.log(myClass);

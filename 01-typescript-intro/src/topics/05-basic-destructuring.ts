@@ -32,11 +32,12 @@ que es un tipo de TypeScript, él recomienda lo de abajo. Además si tenemos una
 mismo nombre que otra y queremos cambiarlo, podemos hacerlo dentro de la desestructuración poniendo : 
 y el nombre nuevo que queremos darle*/
 
-console.log('Song:', anotherSong);
-console.log('Duration:', duration);
-console.log('Author:', author);
+// console.log('Song:', anotherSong);
+// console.log('Duration:', duration);
+// console.log('Author: ', audioPlayer.details.author );
+// console.log('Author:', author);
 
-const [, , trunks = 'Not found']: string[] = ['Goku', 'Vegeta'];
+const [ , , trunks = 'Not found' ]: string[] = ['Goku', 'Vegeta'];
 
 console.log('Personaje 3:', trunks);
 
