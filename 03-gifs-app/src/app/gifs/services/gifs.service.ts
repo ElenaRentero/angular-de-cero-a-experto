@@ -1,45 +1,60 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Gif, SearchGifsResponse } from '../interface/gifs.interface';
+import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 
 @Injectable({
-  providedIn: 'root', // Con esot Angular lo eleva a un nivel global de la aplicación
+  providedIn: 'root', // Con esto Angular lo eleva a un nivel global de la aplicación
 })
 export class GifsService {
-  private apiKey: string = 'UCXjDaV8gezGnu9CfIultvaLUlMkns2U';
-  private servicioUrl: string = 'https://api.giphy.com/v1/gifs';
-  private _historial: string[] = [];
-  public resultados: Gif[] = [];
+  public gifList: Gif[] = [];
 
-  get historial() {
-    return [...this._historial];
-  }
+  private _tagsHistory: string[] = [];
+  private apiKey: string = 'UCXjDaV8gezGnu9CfIultvaLUlMkns2U';
+  private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
   constructor(private http: HttpClient) {
-    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
-    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
+    this.loadLocalStorage();
   }
 
-  buscarGifs(query: string) {
-    query = query.trim().toLowerCase();
+  get tagsHistory() {
+    return [...this._tagsHistory];
+  }
 
-    if (!this._historial.includes(query)) {
-      this._historial.unshift(query);
-      this._historial = this._historial.splice(0, 10);
-
-      localStorage.setItem('historial', JSON.stringify(this._historial));
+  private organizeHistory(tag: string) {
+    tag = tag.toLowerCase();
+    if (this._tagsHistory.includes(tag)) {
+      this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
     }
+    this._tagsHistory.unshift(tag);
+    this._tagsHistory = this.tagsHistory.splice(0, 10);
+    this.saveLocalStorage();
+  }
+
+  private saveLocalStorage(): void {
+    localStorage.setItem('history', JSON.stringify(this._tagsHistory));
+  }
+
+  private loadLocalStorage(): void {
+    if (!localStorage.getItem('history')) return;
+    this._tagsHistory = JSON.parse(localStorage.getItem('history')!); // Este es el Non-null assertion operator para indicarle que nunca va a venir null siempre va a tener data
+
+    if (this._tagsHistory.length === 0) return;
+    this.searchTag(this._tagsHistory[0]);
+  }
+
+  searchTag(tag: string) {
+    if (tag.length === 0) return;
+    this.organizeHistory(tag);
 
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('limit', '10')
-      .set('q', query);
+      .set('q', tag);
 
     this.http
-      .get<SearchGifsResponse>(`${this.servicioUrl}/search`, {params})
+      .get<SearchResponse>(`${this.serviceUrl}/search`, { params })
       .subscribe((resp) => {
-        this.resultados = resp.data;
-        localStorage.setItem('resultados', JSON.stringify(this.resultados));
+        this.gifList = resp.data;
       });
   }
 }
