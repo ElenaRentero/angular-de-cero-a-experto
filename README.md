@@ -9,7 +9,11 @@ Curso para aprender Angular en profundidad mediante ejercicios de la plataforma 
 - 05: [Expandiendo nuestras bases](02-bases/src/app/dbz)
 - 06: Despliegues rápidos a producción
 - 07: [GifsApp - Aplicación para buscar imágenes](03-gifs-app)
+- 08: Image Loader
+- 09: [Country SPA - Aplicación sobre países](04-country-app)
+- 10: Mejoras y funcionalidades extra
 
 ## ⚙ Proyectos
 - [Dragon Ball Z](https://curso-angular-dbz.netlify.app/)
 - [GifsApp](https://curso-angular-gifsapp.netlify.app/)
+- [CountryApp](https://curso-angular-countryapp.netlify.app/)
